@@ -5,6 +5,7 @@ class CreateFacts < ActiveRecord::Migration[6.1]
       t.float :stars
       t.string :source
       t.string :username
+      t.string :foo
 
       t.timestamps
     end

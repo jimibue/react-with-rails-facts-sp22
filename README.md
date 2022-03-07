@@ -43,3 +43,18 @@ rails s -p 3001
 
 # REACT ...
 
+  - Routes/Component/Nav (React Router UI/UX)
+    - Form (new/edit)
+    - Facts = list all facts
+    - Fact - render a single fact
+    - FactShow - render a single fact on it own page (React Router)
+  - CRUD in our Provider 
+     - axios calls (api call to interact with rails)
+     - updating our state
+  - UI
+    - setting up forms
+    - connecting our state to UI
+    - Error handling
+    - UX loaders/nav
+    - styling   
+

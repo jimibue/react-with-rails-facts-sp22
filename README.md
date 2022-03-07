@@ -8,3 +8,7 @@
   - add routes in routes/rb
   - fill out controllers.
   - test with postman
+
+
+# REACT ...
+

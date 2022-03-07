@@ -2,11 +2,11 @@
 
 # RAILS PORTION
   - create rails app
-  - create model/s
+  - create thing model
   - seed database
-  - create controller/s
+  - create  things controller/s
   - add routes in routes/rb
-  - fill out controllers.
+  - fill out controller.
   - test with postman
 
 # SETTING UP RAILS AND REACT
@@ -44,10 +44,10 @@ rails s -p 3001
 # REACT ...
 
   - Routes/Component/Nav (React Router UI/UX)
-    - Form (new/edit)
-    - Facts = list all facts
-    - Fact - render a single fact
-    - FactShow - render a single fact on it own page (React Router)
+    - ThingForm (new/edit)
+    - Things = list all things
+    - Thing - render a single thing
+    - ThingShow - render a single fact on it own page (React Router)
   - CRUD in our Provider 
      - axios calls (api call to interact with rails)
      - updating our state

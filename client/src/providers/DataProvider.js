@@ -17,12 +17,28 @@ const DataProvider = (props) => {
 
   const getFacts = async()=>{
     try {
-      let res = await axios.get('api/facts')
+      let res = await axios.get('/api/facts')
       setFacts(res.data)
     } catch(err){
       alert('err getting facts')
       console.log(err.response.data)
     }
+  }
+  //DELETE
+  // 1. NEED TO REMOVE FROM DB
+  // 2. NEED TO REMOVE FROM FE
+  // 3. NEED TO hookup button click
+  const deleteFact = async(id) => {
+     try{
+       // Step 1
+       let res = await axios.delete(`/api/facts/${id}`)
+       // Step 2
+       let filteredFacts = facts.filter(f=> f.id !== id)
+       setFacts(filteredFacts)
+        
+     } catch(err){
+       alert('err in deleting')
+     }
   }
 
 
@@ -30,6 +46,7 @@ const DataProvider = (props) => {
   // create an object that will be 'global state'
   const factProviderThing = {
     getFacts,
+    deleteFact,
     facts
 };
   // return the provider which will wrap my all app

@@ -1,11 +1,16 @@
 import React, {useState} from 'react'
 
 const ThingForm = (props)=>{
-    const [name, setName] = useState('')
+    const [name, setName] = useState(props.name || '')
     
     const handleSubmit =(e)=>{
         e.preventDefault()
-        props.addThing({name})
+        if(props.id){
+           // update
+           props.updateThing({name, id:props.id})
+        } else{
+            props.addThing({name})
+        }
         //????? Add to db
     }
     return (
@@ -13,7 +18,7 @@ const ThingForm = (props)=>{
             <p>name</p>
             <input value={name} onChange={(e)=>setName(e.target.value)}/>
             <hr />
-            <button>add</button> 
+            <button>{props.id ? 'Update' : 'New'}</button> 
         </form>
     )
 }

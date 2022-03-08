@@ -6,7 +6,7 @@ import { DataContext } from '../providers/DataProvider'
 
 const FactShow = (props)=>{
     const params = useParams()
-    const {state} = useLocation()
+    const { state } = useLocation()
     
     useEffect(()=>{
         getFactFromProvider()

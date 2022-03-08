@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 // createContext HERE this doing a lot for
 // create Context/Provider, get and set out data
 export const DataContext = React.createContext();
 
 const DataProvider = (props) => {
+  // const navigate = useNavigate()
   const [facts, setFacts] = useState([]);
   // onMount i want to run get Facts
 
@@ -22,6 +24,40 @@ const DataProvider = (props) => {
     } catch(err){
       alert('err getting facts')
       console.log(err.response.data)
+    }
+  }
+  //create
+  // 1. get data from form to method DONE
+  const addFact = async (fact, navigate)=>{
+    //2. try to add to db
+    try{
+       let res = await axios.post('/api/facts', fact)
+       // HERE WE SUCCESSFULLY ADDED FACT TO DB
+       //3. ADD TO STATE(UI) 
+       setFacts([res.data, ...facts])
+       // 4.  AND UX step Navigate
+       navigate('/facts')
+      } catch(err){
+        console.log(err)
+        console.log(err.response)
+      }
+  }
+
+  // update 
+  // 1. get data from form to method 
+  const updateFact = async (fact, navigate)=>{
+    console.log('fact:', fact)
+    //2. try to add to db
+    try{
+      let res = await axios.put(`/api/facts/${fact.id}`, fact)
+      //3. update TO STATE(UI) 
+      const updatedFacts = facts.map(f => f.id === res.data.id ? res.data : f)
+      setFacts(updatedFacts)
+      // 4.  AND UX step Navigate
+      navigate('/facts')
+      console.log(res)
+    } catch(err){
+      console.log(err)
     }
   }
   //DELETE
@@ -47,6 +83,8 @@ const DataProvider = (props) => {
   const factProviderThing = {
     getFacts,
     deleteFact,
+    addFact,
+    updateFact,
     facts
 };
   // return the provider which will wrap my all app

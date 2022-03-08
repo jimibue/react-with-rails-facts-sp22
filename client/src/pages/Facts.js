@@ -9,8 +9,10 @@ const Facts = (props)=>{
         console.log('Facts mounted')
       },[])
     const renderFacts = ()=> {
+      //[{id:2, text:'yo'},{id:3, text:'hey'}]
+      //[ , <Fact key=3 id=3, text='hey' /> ]
       return facts.map((fact)=>{
-         return <Fact key={fact.id}{...fact} />
+         return <Fact key={fact.id} {...fact} />
       })
     } 
     return (

@@ -12,14 +12,13 @@ import Facts from "./pages/Facts";
 import FactForm from "./pages/FactForm";
 import FactShow from "./pages/FactShow";
 
-
-const NotFound = ()=>{
-  return <p>path not found</p>
-}
+const NotFound = () => {
+  return <p>path not found</p>;
+};
 
 ReactDOM.render(
-  <DataProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <DataProvider>
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/about" element={<About />} />
@@ -31,8 +30,8 @@ ReactDOM.render(
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </BrowserRouter>
-  </DataProvider>,
+    </DataProvider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

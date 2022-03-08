@@ -11,6 +11,7 @@ function App() {
         >
           <Link to='/home'>Home</Link> - {' '}
           <Link to='/facts'>Facts</Link> - {' '}
+          <Link to='/things'>Things</Link> - {' '}
           <Link to='/facts/new'>New Facts</Link> - {' '}
           <Link to='/about'>About</Link>
         </nav>

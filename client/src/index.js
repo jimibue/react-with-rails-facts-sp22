@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Facts from "./pages/Facts";
 import FactForm from "./pages/FactForm";
 import FactShow from "./pages/FactShow";
+import Things from "./pages/Things";
 
 const NotFound = () => {
   return <p>path not found</p>;
@@ -24,6 +25,7 @@ ReactDOM.render(
           <Route path="/about" element={<About />} />
           <Route path="/home" element={<Home />} />
           <Route path="/facts" element={<Facts />} />
+          <Route path="/things" element={<Things />} />
           <Route path="/facts/new" element={<FactForm />} />
           <Route path="/facts/:id" element={<FactShow />} />
           <Route path="/facts/:id/edit" element={<FactForm />} />

@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
 Fact.destroy_all
+Thing.destroy_all
 
 # seeds.rb
 Fact.create(text: "5g causes covid", stars:1, source:'google', username:"Larry")
@@ -14,6 +16,12 @@ Fact.create(text: "Armadillos are bullet proof", stars:0, source:'internet', use
 Fact.create(text: "Some fungi create zombies, then control their minds", stars:4.2, source:'https://www.nationalgeographic.com/animals/article/110511-zombies-ants-fungus-infection-spores-bite-noon-animals-science', username:"James")
 Fact.create(text: "Whales Swallow Half a Million Calories in Single Mouthful", stars:3.3, source:'https://www.nationalgeographic.com/animals/article/110511-zombies-ants-fungus-infection-spores-bite-noon-animals-science', username:"James")
 puts "seeded facts size: #{Fact.all.size}"
+
+100.times do 
+  Thing.create(name:Faker::Hobby.activity)
+end
+
+puts "seeded things size: #{Thing.all.size}"
 
 
 # //in terminal
